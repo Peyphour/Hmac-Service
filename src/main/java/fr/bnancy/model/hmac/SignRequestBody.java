@@ -28,4 +28,12 @@ public class SignRequestBody {
     public void setAlgorithm(String algorithm) {
         this.algorithm = algorithm;
     }
+
+    @Override
+    public String toString() {
+        return "SignRequestBody{" +
+                "body='" + body + '\'' +
+                ", algorithm='" + algorithm + '\'' +
+                '}';
+    }
 }

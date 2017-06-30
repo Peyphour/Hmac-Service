@@ -36,4 +36,13 @@ public class VerifyRequest {
     public void setAlgorithm(String algorithm) {
         this.algorithm = algorithm;
     }
+
+    @Override
+    public String toString() {
+        return "VerifyRequest{" +
+                "body='" + body + '\'' +
+                ", hash='" + hash + '\'' +
+                ", algorithm='" + algorithm + '\'' +
+                '}';
+    }
 }
