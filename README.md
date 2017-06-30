@@ -26,3 +26,11 @@ Send a POST request to `/hmac/verify` containing the response from the sign requ
 Example: `curl localhost:8080/hmac/verify -X POST -d '{"body":"test","hash":"ba1ea8001f15f25b97e2e8c358f4a472","algorithm":"MD5"}' -H "Content-Type: application/json"`
 
 Response : `{"result":true,"body":"test"}`
+
+
+# Demo
+
+A demo is available at `https://sign.bnancy.fr`
+
+# What next ?
+RSA signature
