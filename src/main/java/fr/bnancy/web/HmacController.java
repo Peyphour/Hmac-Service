@@ -1,10 +1,10 @@
 package fr.bnancy.web;
 
-import fr.bnancy.model.SignRequestBody;
-import fr.bnancy.model.SignResponseBody;
-import fr.bnancy.model.VerifyRequest;
-import fr.bnancy.model.VerifyRequestResult;
-import fr.bnancy.service.SignService;
+import fr.bnancy.model.hmac.SignRequestBody;
+import fr.bnancy.model.hmac.SignResponseBody;
+import fr.bnancy.model.hmac.VerifyRequest;
+import fr.bnancy.model.hmac.VerifyRequestResult;
+import fr.bnancy.service.HmacSignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hmac")
 public class HmacController {
 
-    private SignService signService;
+    private HmacSignService hmacSignService;
 
     @Autowired
-    public HmacController(SignService signService) {
-        this.signService = signService;
+    public HmacController(HmacSignService hmacSignService) {
+        this.hmacSignService = hmacSignService;
     }
 
     @RequestMapping(value = "/sign", method = RequestMethod.POST)
     public SignResponseBody sign(@RequestBody SignRequestBody body) {
-        return signService.sign(body);
+        return hmacSignService.sign(body);
     }
 
     @RequestMapping(value = "/verify", method = RequestMethod.POST)
     public VerifyRequestResult verify(@RequestBody VerifyRequest verifyRequest) {
-        return new VerifyRequestResult(signService.verify(verifyRequest), verifyRequest.getBody());
+        return new VerifyRequestResult(hmacSignService.verify(verifyRequest), verifyRequest.getBody());
     }
 }

@@ -1,23 +1,23 @@
 package fr.bnancy.service;
 
-import fr.bnancy.model.SignRequestBody;
-import fr.bnancy.model.SignResponseBody;
-import fr.bnancy.model.VerifyRequest;
+import fr.bnancy.model.hmac.SignRequestBody;
+import fr.bnancy.model.hmac.SignResponseBody;
+import fr.bnancy.model.hmac.VerifyRequest;
 import org.apache.commons.codec.digest.HmacUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SignService {
+public class HmacSignService {
 
     @Value("${application.signKey}")
     private String applicationKey;
 
-    public SignService(String applicationKey) {
+    public HmacSignService(String applicationKey) {
         this.applicationKey = applicationKey;
     }
 
-    public SignService() {
+    public HmacSignService() {
 
     }
 

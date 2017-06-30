@@ -1,4 +1,4 @@
-package fr.bnancy.model;
+package fr.bnancy.model.hmac;
 
 public class SignResponseBody {
 
